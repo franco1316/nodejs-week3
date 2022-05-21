@@ -28,11 +28,14 @@ const getRepairById = catchAsync(async (req, res) => {
 });
 
 const addRepair = catchAsync(async (req, res) => {
-  const { date, userId } = req.body;
+  const { date, computerNumber, comments, userId, status } = req.body;
 
   const newRepair = await Repair.create({
     date,
+    computerNumber,
+    comments,
     userId,
+    status,
   });
 
   res.status(201).json({
